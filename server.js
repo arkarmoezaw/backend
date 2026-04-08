@@ -51,5 +51,5 @@ app.get("/api/v1/health", (req, res) => {
 app.use("/api/v1", routes);
 
 app.listen(process.env.PORT || 3001, () => {
-  console.log(`Server is running on port ${process.env.PORT || 3001}...`);
+  console.log(`Server is running on port ${process.env.PORT || 10000}...`);
 });
