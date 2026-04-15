@@ -14,6 +14,10 @@ router.post("/login", login);
 router.post("/logout", logout);
 router.get("/refresh", refresh);
 
+router.get("/users", (req, res) => {
+  res.json({ message: "Users route" });
+});
+
 router.get("/profile", verifyToken, (req, res) => {
   res.json({ user: req.user });
 });
