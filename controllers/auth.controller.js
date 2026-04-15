@@ -5,6 +5,8 @@ import {
   logoutUser,
 } from "../services/auth.service.js";
 
+import User from "../models/User.model.js";
+
 const COOKIE_OPTIONS = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
@@ -86,4 +88,11 @@ export async function logout(req, res) {
   } catch (error) {
     res.status(500).json({ success: false, message: "Server error" });
   }
+}
+
+export async function getUsers(req, res) {
+  try {
+    const users = await User.find();
+    res.status(200).json({ success: true, data: users });
+  } catch {}
 }

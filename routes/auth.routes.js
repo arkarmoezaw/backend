@@ -4,6 +4,7 @@ import {
   login,
   logout,
   refresh,
+  getUsers,
 } from "../controllers/auth.controller.js";
 import { authorizeRoles, verifyToken } from "../middlewares/auth.middleware.js";
 
@@ -14,9 +15,7 @@ router.post("/login", login);
 router.post("/logout", logout);
 router.get("/refresh", refresh);
 
-router.get("/users", (req, res) => {
-  res.json({ message: "Users route" });
-});
+router.get("/users", getUsers);
 
 router.get("/profile", verifyToken, (req, res) => {
   res.json({ user: req.user });
